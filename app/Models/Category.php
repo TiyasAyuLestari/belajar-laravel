@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Category extends Model
+{
+    use HasFactory;
+    
+    // Kolom yang boleh diisi user
+    protected $fillable = ['name']; 
+    public function products()
+{
+    // Satu kategori punya banyak produk
+    return $this->hasMany(Product::class);
+}
+public function items()
+{
+    return $this->hasMany(Item::class);
+}
+
+}
